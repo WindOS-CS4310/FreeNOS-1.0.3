@@ -25,7 +25,7 @@
 Sleep::Sleep(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
-    parser().setDescription("Stop executing for some time");
+    parser().setDescription("Stop executing for some time lol");
     parser().registerPositional("SECONDS", "Stop executing for the given number of seconds");
 }
 
