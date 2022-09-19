@@ -6,7 +6,7 @@
 #include "Wait.h"
 
 Wait::Wait(int argc, char **argv): POSIXApplication(argc, argv) {
-    parser().setDescription("Suspend OS until process finishes");
+    parser().setDescription("Block OS input until Process finishes");
     parser().registerPositional("PID", "ID of the Process to wait for");
 }
 
