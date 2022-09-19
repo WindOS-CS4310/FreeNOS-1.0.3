@@ -221,6 +221,16 @@ extern C int unlink(const char *path);
 extern C unsigned int sleep(unsigned int seconds);
 
 /**
+ * Block OS until process finishes
+ *
+ * @param PID ID of the Process
+ *
+ * @return Zero on success -1 on fail
+ */
+extern C unsigned int wait(unsigned int pid);
+
+
+/**
  * @}
  * @}
  */
