@@ -19,7 +19,7 @@ Wait::Result Wait::exec()
     // Convert input to seconds
     if ((id = atoi(arguments().get("PID"))) <= 0)
     {
-        ERROR("Invalid PID Time `" << arguments().get("PID") << "'");
+        ERROR("Invalid PID  `" << arguments().get("PID") << "'");
         return InvalidArgument;
     }
 
