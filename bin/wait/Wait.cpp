@@ -16,10 +16,11 @@ Wait::Result Wait::exec()
 {
     int id = 0;
 
+    //validation check
     // Convert input to seconds
     if ((id = atoi(arguments().get("PID"))) <= 0)
     {
-        ERROR("Invalid PID Time `" << arguments().get("PID") << "'");
+        ERROR("Invalid PID  `" << arguments().get("PID") << "'");
         return InvalidArgument;
     }
 
