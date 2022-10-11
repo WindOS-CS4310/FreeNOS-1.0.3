@@ -120,6 +120,13 @@ class Process
     ProcessShares & getShares();
 
     /**
+     * Retrieves the priority
+     * 
+     * @return Priority Value (1 Lowest, 8 Highest)
+    */
+    int getPriority() const;
+
+    /**
      * Retrieves the current state.
      *
      * @return Current status of the Process.
@@ -241,6 +248,11 @@ class Process
      */
     void setParent(ProcessID id);
 
+    /**
+     * Set Priority
+    */
+    void setPriority(int i);
+
   protected:
 
     /** Process Identifier */
@@ -285,6 +297,9 @@ class Process
 
     /** Channel for sending kernel events to the Process */
     MemoryChannel *m_kernelChannel;
+
+    /** Priority Value */
+    int priority;
 };
 
 /**

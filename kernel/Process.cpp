@@ -30,6 +30,7 @@ Process::Process(ProcessID id, Address entry, bool privileged, const MemoryMap &
     m_parent        = 0;
     m_waitId        = 0;
     m_waitResult    = 0;
+    priority        = 1;
     m_wakeups       = 0;
     m_entry         = entry;
     m_privileged    = privileged;
@@ -77,6 +78,10 @@ uint Process::getWaitResult() const
     return m_waitResult;
 }
 
+int Process::getPriority() const {
+    return priority;
+}
+
 Process::State Process::getState() const
 {
     return m_state;
@@ -105,6 +110,10 @@ bool Process::isPrivileged() const
 void Process::setParent(ProcessID id)
 {
     m_parent = id;
+}
+
+void Process::setPriority(int i) {
+    priority = i;
 }
 
 Process::Result Process::wait(ProcessID id)
