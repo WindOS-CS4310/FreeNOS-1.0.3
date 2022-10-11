@@ -16,6 +16,7 @@ Wait::Result Wait::exec()
 {
     int id = 0;
 
+    //validation check
     // Convert input to seconds
     if ((id = atoi(arguments().get("PID"))) <= 0)
     {
