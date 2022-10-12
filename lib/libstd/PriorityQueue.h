@@ -36,7 +36,7 @@ class PriorityQueue : public Container {
     }
 
     bool enq(Process* item, int pri) {
-        if (m_count >= N) {
+        if (m_size >= N) {
             return false;
         }
 
