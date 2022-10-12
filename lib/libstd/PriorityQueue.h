@@ -52,7 +52,7 @@ template <Size N> class PriorityQueue : public Container
 
     int peek() {
         int highest = 8;
-        int index = -1;
+        int index = 0;
 
         for (int i = 0; i < m_count; i++) {
             if (highest < m_array[i].pri) {
@@ -69,7 +69,7 @@ template <Size N> class PriorityQueue : public Container
     Process* deq() {
         int index = peek();
         Process* item = m_array[index].value;
-        for (Size i = index; i < m_count; i++) {
+        for (int i = index; i < m_count; i++) {
             m_array[i] = m_array[i+1];
         }
         m_count--;
