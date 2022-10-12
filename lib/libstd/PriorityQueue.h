@@ -9,7 +9,7 @@
 
 template <class T>
 struct node {
-    T* value;
+    T value;
     int pri;
 };
 
