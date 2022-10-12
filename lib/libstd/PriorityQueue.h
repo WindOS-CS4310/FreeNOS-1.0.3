@@ -32,6 +32,7 @@ template <class T, Size N> class PriorityQueue : public Container
      */
     PriorityQueue() {
         clear();
+        m_array = new Node[N];
     }
 
     bool enq(Process* item, int pri) {
@@ -42,11 +43,12 @@ template <class T, Size N> class PriorityQueue : public Container
         m_size++;
         m_count++;
 
-        Node n;
+        /*Node n* = new Node();
         n.value = item;
-        n.pri = pri;
+        n.pri = pri;*/
         
-        m_array[m_size] = n;
+        m_array[m_size].value = item;
+        m_array[m_size].pri = pri;
         return true;
     }
 
@@ -112,7 +114,7 @@ template <class T, Size N> class PriorityQueue : public Container
     }
 
   private:
-    Node m_array[N];
+    Node* m_array;
     uint m_size;
     uint m_count;
 };
