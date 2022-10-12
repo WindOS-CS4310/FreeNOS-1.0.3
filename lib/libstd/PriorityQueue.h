@@ -53,7 +53,7 @@ template <class T, Size N> class PriorityQueue : public Container
         m_size++;
 
 
-        m_array[m_size] = new node<item>;
+        m_array[m_size] = new node<T>;
         m_array[m_size].value = item;
         m_array[m_size].pri = pri;
         return true;
@@ -84,7 +84,7 @@ template <class T, Size N> class PriorityQueue : public Container
     T & deq()
     {
         int index = peek();
-        T* item = m_array[index].value;
+        T& item = m_array[index].value;
         for (Size i = index; i < m_count; i++) {
             m_array[i] = m_array[i+1];
         }
