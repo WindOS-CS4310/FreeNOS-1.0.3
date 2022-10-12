@@ -9,7 +9,7 @@
 
 template <class T>
 struct node {
-    T value;
+    T* value;
     int pri;
 };
 
@@ -58,7 +58,7 @@ template <class T, Size N> class PriorityQueue : public Container
         return true;
     }
 
-    T & peek() {
+    int peek() {
         int highest = 8;
         int index = -1;
 
@@ -83,7 +83,7 @@ template <class T, Size N> class PriorityQueue : public Container
     T & deq()
     {
         int index = peek();
-        T& item = m_array[index].value;
+        T* item = m_array[index].value;
         for (Size i = index; i < m_count; i++) {
             m_array[i] = m_array[i+1];
         }
