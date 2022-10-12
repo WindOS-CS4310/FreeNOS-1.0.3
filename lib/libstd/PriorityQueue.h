@@ -51,6 +51,7 @@ template <class T, Size N> class PriorityQueue : public Container
         }
 
         m_size++;
+        m_count++;
 
         node<T> n;
         n.value = item;
