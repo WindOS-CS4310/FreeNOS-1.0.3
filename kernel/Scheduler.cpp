@@ -72,7 +72,9 @@ Process * Scheduler::select()
     NOTICE(m_queue.count());
     if (m_queue.count() > 0)
     {
+        NOTICE("P INFO");
         Process *p = m_queue.deq();
+        NOTICE(p->getID());
         m_queue.enq(p, p->getPriority());
         return p;
     }
