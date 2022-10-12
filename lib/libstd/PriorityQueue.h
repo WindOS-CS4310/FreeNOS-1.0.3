@@ -68,6 +68,7 @@ class PriorityQueue : public Container {
     Process* deq() {
         int index = peek();
         Process* item = m_array[index].value;
+
         for (int i = index; i < m_count - 1; i++) {
             m_array[i] = m_array[i+1];
         }
