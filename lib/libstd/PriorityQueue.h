@@ -34,7 +34,7 @@ template <class T, Size N> class PriorityQueue : public Container
         clear();
     }
 
-    bool enq(const Process& item, int pri) {
+    bool enq(Process* item, int pri) {
         if (m_count >= N) {
             return false;
         }
