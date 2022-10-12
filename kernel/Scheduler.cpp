@@ -68,7 +68,7 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
 
 Process * Scheduler::select()
 {
-    NOTICE("Here in " + m_queue.count());
+    NOTICE("PROCESS COUNT:");
     NOTICE(m_queue.count());
     if (m_queue.count() > 0)
     {
