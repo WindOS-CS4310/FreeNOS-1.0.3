@@ -43,7 +43,7 @@ template <class T, Size N> class PriorityQueue : public Container
         m_count++;
 
         Node n;
-        n.value = &item;
+        n.value = item;
         n.pri = pri;
         
         m_array[m_size] = n;
