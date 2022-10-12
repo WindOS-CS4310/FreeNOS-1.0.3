@@ -23,10 +23,9 @@ struct Node {
 /**
  * Array of items as a Priority Queue
  */
-template <Size N> class PriorityQueue : public Container
-{
+template <Size N> 
+class PriorityQueue : public Container {
   public:
-
     PriorityQueue() {
         clear();
         m_array = new Node[N];
@@ -69,7 +68,7 @@ template <Size N> class PriorityQueue : public Container
     Process* deq() {
         int index = peek();
         Process* item = m_array[index].value;
-        for (int i = index; i < m_count; i++) {
+        for (int i = index; i < m_count - 1; i++) {
             m_array[i] = m_array[i+1];
         }
         m_count--;
@@ -107,8 +106,8 @@ template <Size N> class PriorityQueue : public Container
 
   private:
     Node* m_array;
-    uint m_size;
-    uint m_count;
+    int m_size;
+    int m_count;
 };
 
 /**
