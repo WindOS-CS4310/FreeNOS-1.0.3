@@ -7,9 +7,8 @@
 #include "Macros.h"
 #include "Container.h"
 
-template <class T>
-struct node {
-    T* value;
+struct Node {
+    Process* value;
     int pri;
 };
 
@@ -31,31 +30,21 @@ template <class T, Size N> class PriorityQueue : public Container
     /**
      * Default constructor
      */
-    PriorityQueue()
-    {
+    PriorityQueue() {
         clear();
     }
 
-    /**
-     * Add item to the head of the Queue.
-     *
-     * @param item The item to add
-     *
-     * @return True if successful, false otherwise
-     */
-    bool enq(const T & item, int pri)
-    {
-        if (m_count >= N)
-        {
+    bool enq(const Process& item, int pri) {
+        if (m_count >= N) {
             return false;
         }
 
         m_size++;
         m_count++;
 
-        node<T>* n = new node<T>;
-        n->value = &item;
-        n->pri = pri;
+        Node n;
+        n.value = &item;
+        n.pri = pri;
         
         m_array[m_size] = n;
         return true;
@@ -83,15 +72,14 @@ template <class T, Size N> class PriorityQueue : public Container
      *
      * @note Do not call this function if the Queue is empty
      */
-    T & deq()
-    {
+    Process* deq() {
         int index = peek();
-        T* item = m_array[index].value;
+        Process* item = m_array[index].value;
         for (Size i = index; i < m_count; i++) {
             m_array[i] = m_array[i+1];
         }
         m_count--;
-        return *item;
+        return item;
     }
 
     /**
@@ -124,11 +112,8 @@ template <class T, Size N> class PriorityQueue : public Container
     }
 
   private:
-
-    node<T> m_array[N];
-
+    Node<Process*> m_array[N];
     uint m_size;
-
     uint m_count;
 };
 
