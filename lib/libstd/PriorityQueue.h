@@ -52,10 +52,11 @@ template <class T, Size N> class PriorityQueue : public Container
 
         m_size++;
 
+        node<T> n;
+        n.value = item;
+        n.pri = pri;
 
-        m_array[m_size] = new node<T>;
-        m_array[m_size].value = item;
-        m_array[m_size].pri = pri;
+        m_array[m_size] = n;
         return true;
     }
 
