@@ -9,7 +9,7 @@
 
 template <class T>
 struct node {
-    T value;
+    T* value;
     int pri;
 };
 
@@ -53,10 +53,10 @@ template <class T, Size N> class PriorityQueue : public Container
         m_size++;
         m_count++;
 
-        node<T> n;
-        n.value = item;
-        n.pri = pri;
-
+        node<T> n* = new node<T>;
+        n->value = &item;
+        n->pri = pri;
+        
         m_array[m_size] = n;
         return true;
     }
@@ -86,12 +86,12 @@ template <class T, Size N> class PriorityQueue : public Container
     T & deq()
     {
         int index = peek();
-        T& item = m_array[index].value;
+        T* item = m_array[index].value;
         for (Size i = index; i < m_count; i++) {
             m_array[i] = m_array[i+1];
         }
         m_count--;
-        return item;
+        return *item;
     }
 
     /**
