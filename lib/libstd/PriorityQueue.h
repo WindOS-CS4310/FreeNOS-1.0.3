@@ -9,7 +9,7 @@
 
 template <class T>
 struct node {
-    T* value;
+    T& value;
     int pri;
 };
 
@@ -52,7 +52,8 @@ template <class T, Size N> class PriorityQueue : public Container
 
         m_size++;
 
-        m_array[m_size] = new node<T>;
+
+        m_array[m_size] = new node<item>;
         m_array[m_size].value = item;
         m_array[m_size].pri = pri;
         return true;
