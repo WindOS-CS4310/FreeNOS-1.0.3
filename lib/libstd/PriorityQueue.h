@@ -27,8 +27,8 @@ template <Size N>
 class PriorityQueue : public Container {
   public:
     PriorityQueue() {
-        clear();
         m_array = new Node[N];
+        size = 0;
     }
 
     ~PriorityQueue() {
@@ -40,12 +40,9 @@ class PriorityQueue : public Container {
             return false;
         }
 
-        m_size++;
-        
         m_array[m_size].value = item;
         m_array[m_size].pri = pri;
-
-        m_count++;
+        m_size++;
         return true;
     }
 
@@ -53,7 +50,7 @@ class PriorityQueue : public Container {
         int highest = 8;
         int index = 0;
 
-        for (int i = 0; i < m_count; i++) {
+        for (int i = 0; i < m_size; i++) {
             if (highest < m_array[i].pri) {
                 highest = m_array[i].pri;
                 index = i;
@@ -69,10 +66,10 @@ class PriorityQueue : public Container {
         int index = peek();
         Process* item = m_array[index].value;
 
-        for (int i = index; i < m_count - 1; i++) {
+        for (int i = index; i < m_size - 1; i++) {
             m_array[i] = m_array[i+1];
         }
-        m_count--;
+        m_size--;
         return item;
     }
 
@@ -81,8 +78,7 @@ class PriorityQueue : public Container {
      */
     virtual void clear()
     {
-        m_size = -1;
-        m_count = 0;
+        m_size = 0;
     }
 
     /**
@@ -102,13 +98,12 @@ class PriorityQueue : public Container {
      */
     virtual Size count() const
     {
-        return m_count;
+        return m_size;
     }
 
   private:
     Node* m_array;
     int m_size;
-    int m_count;
 };
 
 /**
