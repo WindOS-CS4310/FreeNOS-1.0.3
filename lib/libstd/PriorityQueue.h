@@ -112,7 +112,7 @@ template <class T, Size N> class PriorityQueue : public Container
     }
 
   private:
-    Node<Process*> m_array[N];
+    Node m_array[N];
     uint m_size;
     uint m_count;
 };
