@@ -68,11 +68,11 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
 
 Process * Scheduler::select()
 {
+    NOTICE("Here in " + m_queue.count());
     if (m_queue.count() > 0)
     {
         Process *p = m_queue.deq();
         m_queue.enq(p, p->getPriority());
-
         return p;
     }
 
