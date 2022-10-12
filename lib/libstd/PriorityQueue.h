@@ -23,16 +23,17 @@ struct Node {
 /**
  * Array of items as a Priority Queue
  */
-template <class T, Size N> class PriorityQueue : public Container
+template <Size N> class PriorityQueue : public Container
 {
   public:
 
-    /**
-     * Default constructor
-     */
     PriorityQueue() {
         clear();
         m_array = new Node[N];
+    }
+
+    ~PriorityQueue() {
+        delete[] m_array;
     }
 
     bool enq(Process* item, int pri) {
@@ -41,14 +42,11 @@ template <class T, Size N> class PriorityQueue : public Container
         }
 
         m_size++;
-        m_count++;
-
-        /*Node n* = new Node();
-        n.value = item;
-        n.pri = pri;*/
         
         m_array[m_size].value = item;
         m_array[m_size].pri = pri;
+
+        m_count++;
         return true;
     }
 
@@ -56,7 +54,7 @@ template <class T, Size N> class PriorityQueue : public Container
         int highest = 8;
         int index = -1;
 
-        for (Size i = 0; i <= m_count; i++) {
+        for (int i = 0; i < m_count; i++) {
             if (highest < m_array[i].pri) {
                 highest = m_array[i].pri;
                 index = i;
@@ -67,13 +65,7 @@ template <class T, Size N> class PriorityQueue : public Container
         return index;
     }
 
-    /**
-     * Remove item from the tail of the Queue.
-     *
-     * @return Item T
-     *
-     * @note Do not call this function if the Queue is empty
-     */
+
     Process* deq() {
         int index = peek();
         Process* item = m_array[index].value;
