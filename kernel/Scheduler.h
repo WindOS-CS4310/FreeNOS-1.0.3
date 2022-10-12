@@ -92,7 +92,7 @@ class Scheduler
 
     /** Contains processes ready to run */
    // Queue<Process *, MAX_PROCS> m_queue;
-    PriorityQueue<Process*, MAX_PROCS> m_queue;
+    PriorityQueue<MAX_PROCS> m_queue;
 };
 
 /**
