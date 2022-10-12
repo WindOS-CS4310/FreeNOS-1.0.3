@@ -22,6 +22,7 @@
 #include <Vector.h>
 #include <Macros.h>
 #include <Queue.h>
+#include <PriorityQueue.h>
 #include "Process.h"
 #include "ProcessManager.h"
 
@@ -90,7 +91,8 @@ class Scheduler
   private:
 
     /** Contains processes ready to run */
-    Queue<Process *, MAX_PROCS> m_queue;
+   // Queue<Process *, MAX_PROCS> m_queue;
+    PriorityQueue<Process*, MAX_PROCS> m_queue;
 };
 
 /**

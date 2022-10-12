@@ -35,7 +35,7 @@ ProcessList::Result ProcessList::exec()
     String out;
 
     // Print header
-    if (arguments().get("long")) {
+    if (!arguments().get("long")) {
         out << "ID  PARENT  USER GROUP STATUS     CMD\r\n";
     } else {
         out << "ID  PARENT  USER GROUP STATUS     CMD        PRIORITY\r\n";
