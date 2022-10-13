@@ -38,7 +38,7 @@ ProcessList::Result ProcessList::exec()
     if (!arguments().get("long")) {
         out << "ID  PARENT  USER GROUP STATUS     CMD\r\n";
     } else {
-        out << "ID  PARENT  USER GROUP STATUS     CMD        PRIORITY\r\n";
+        out << "ID  PARENT  USER GROUP STATUS     CMD                       PRIORITY\r\n";
     }
 
     // Loop processes
