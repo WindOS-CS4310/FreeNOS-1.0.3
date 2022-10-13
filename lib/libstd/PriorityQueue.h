@@ -47,14 +47,12 @@ class PriorityQueue : public Container {
     }
 
     int peek() {
-        int highest = 8;
+        int highest = 0;
         int index = 0;
 
         for (uint i = 0; i < m_size; i++) {
             if (highest < m_array[i].pri) {
                 highest = m_array[i].pri;
-                index = i;
-            } else {
                 index = i;
             }
         }
