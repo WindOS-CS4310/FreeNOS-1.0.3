@@ -6,7 +6,9 @@
 
 unsigned int renice(unsigned int pid, unsigned int priority)
 { 
-    ProcessClient::Info info;
+    //ProcessClient::Info info;
+    ProcessCtl::ProcessInfo i;
+
     const ProcessClient process;
     const ProcessClient::Result result = process.processInfo(pid, info);
 
