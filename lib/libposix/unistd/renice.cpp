@@ -12,10 +12,10 @@ unsigned int renice(unsigned int pid, unsigned int priority)
 { 
     ProcessClient::Info info;
     const ProcessClient process;
-    const ProcessClient::Result result = process.processInfo(id, info);
+    const ProcessClient::Result result = process.processInfo(pid, info);
 
     if (result != ProcessClient::Success) {
-        errno = EIO
+        errno = EIO;
         return -1;
     }
 
