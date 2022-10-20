@@ -21,7 +21,6 @@
 #include <FreeNOS/Process.h>
 #include <FreeNOS/ProcessEvent.h>
 #include <FreeNOS/ProcessManager.h>
-#include <stdio.h>
 #include <Log.h>
 #include "ProcessCtl.h"
 
@@ -74,7 +73,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
     case ChangePriority:
         //const ProcessClient::Info* i = (const ProcessClient::Info *) addr;
         const int* num = (const int*) addr
-        printf("I am changing priority to %2d\n", *num);
+        NOTICE("Changing Priority to " << *num);
         break;
 
     case GetParent:
