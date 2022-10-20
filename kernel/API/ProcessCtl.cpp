@@ -72,7 +72,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
 
     case ChangePriority:
         //const ProcessClient::Info* i = (const ProcessClient::Info *) addr;
-        const int* num = (const int*) addr
+        const int* num = (const int*) addr;
         NOTICE("Changing Priority to " << *num);
         break;
 
