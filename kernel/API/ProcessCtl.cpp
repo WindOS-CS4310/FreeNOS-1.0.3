@@ -71,10 +71,9 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         return (API::Result) procs->current()->getPriority();
 
     case ChangePriority:
-        //const ProcessClient::Info* i = (const ProcessClient::Info *) addr;
-        const int* num = (const int*) addr;
-        NOTICE("Changing Priority to " << *num);
-        break;
+        //TODO
+        NOTICE("Changing Priority to " << *((const int*) addr));
+        return (API::Result) procs->current()->getPriority();
 
     case GetParent:
         return (API::Result) procs->current()->getParent();
