@@ -29,11 +29,11 @@ Renice::Result Renice::exec() {
         return InvalidArgument;
     }
 
-    const ProcessClient process;
-    ProcessClient::Info info;
-    const ProcessClient::Result result = process.processInfo(id, info);
-    if (result == ProcessClient::Success) {
-        printf("Priority is %2d", info.priority);
+    // Get the Process
+    if (renice(id, priority) != 0)
+    {
+        ERROR("Failed to change priority: " << strerror(errno));
+        return IOError;
     }
 
     return Success;
