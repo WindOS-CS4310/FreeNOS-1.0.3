@@ -3,22 +3,22 @@
 #include "unistd.h"
 #include "errno.h"
 #include <ProcessClient.h>
+#include "ProcessCtl.h"
 
 unsigned int renice(unsigned int pid, unsigned int priority)
 { 
-    //ProcessClient::Info info;
-    ProcessCtl::ProcessInfo i;
+    ProcessClient::Info info;
+    ProcessInfo i;
 
     const ProcessClient process;
     const ProcessClient::Result result = process.processInfo(pid, info);
-
     if (result != ProcessClient::Success) {
         errno = EIO;
         return -1;
     }
 
-    info.priority = priority;
-    if (ProcessCtl(pid, ChangePriority, (Address) &info) != API::Success)
+    i.priority = priority;
+    if (ProcessCtl(pid, ChangePriority, (Address) &i) != API::Success)
     {
         errno = EIO;
         return -1;
