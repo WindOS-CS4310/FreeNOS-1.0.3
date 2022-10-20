@@ -1,9 +1,12 @@
 #include <Types.h>
 #include <Macros.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <unistd.h>
 #include "Renice.h"
-#include "ProcessManager.h"
+#include <ProcessClient.h>
 
 Renice::Renice(int argc, char **argv): POSIXApplication(argc, argv) {
     parser().setDescription("Change the priority of processes");
@@ -13,8 +16,6 @@ Renice::Renice(int argc, char **argv): POSIXApplication(argc, argv) {
 }
 
 Renice::Result Renice::exec() {
-    const ProcessClient process;
-
     int priority = 0;
     if ((priority = atoi(arguments().get("Pri"))) <= 0) {
         ERROR("Invalid Priority!");
@@ -28,9 +29,11 @@ Renice::Result Renice::exec() {
         return InvalidArgument;
     }
 
-    Process* p = ProcessManager::get(id);
-    if (p != null) {
-        printf("Priority of process is %2d", p->getPriority());
+    const ProcessClient process;
+    ProcessClient::Info info;
+    const ProcessClient::Result result = process.processInfo(id, info);
+    if (result == ProcessClient::Success) {
+        printf("Priority is %2d", info.priority);
     }
 
     return Success;
