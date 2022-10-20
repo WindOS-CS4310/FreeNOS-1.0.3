@@ -27,7 +27,7 @@ Renice::Result Renice::exec() {
         return InvalidArgument;
     }
 
-    // Get the Process
+    // FInish this
     if (renice(id, priority) != 0)
     {
         ERROR("Failed to change priority: " << strerror(errno));
