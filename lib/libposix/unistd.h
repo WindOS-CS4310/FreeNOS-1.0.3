@@ -231,6 +231,17 @@ extern C unsigned int wait(unsigned int pid);
 
 
 /**
+ * Change priority
+ *
+ * @param PID ID of the Process
+ * @param priority The priority to change to
+ *
+ * @return Zero on success -1 on fail
+ */
+extern C unsigned int renice(unsigned int pid, unsigned int priority);
+
+
+/**
  * @}
  * @}
  */

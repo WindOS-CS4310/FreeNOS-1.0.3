@@ -1,12 +1,10 @@
-#include <Types.h>
-#include <Macros.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
-#include "Renice.h"
 #include <ProcessClient.h>
+#include "Renice.h"
 
 Renice::Renice(int argc, char **argv): POSIXApplication(argc, argv) {
     parser().setDescription("Change the priority of processes");
