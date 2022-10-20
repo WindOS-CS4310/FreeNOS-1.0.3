@@ -21,6 +21,8 @@
 #include <FreeNOS/Process.h>
 #include <FreeNOS/ProcessEvent.h>
 #include <FreeNOS/ProcessManager.h>
+#include <FreeNOS/ProcessClient.h>
+#include <stdio.h>
 #include <Log.h>
 #include "ProcessCtl.h"
 
