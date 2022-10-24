@@ -11,7 +11,6 @@ unsigned int renice(unsigned int pid, unsigned int priority)
     const ProcessClient process;
     const ProcessClient::Result result = process.processInfo(pid, info);
     if (result != ProcessClient::Success) {
-        errno = EIO;
         return -1;
     }
 
