@@ -7,7 +7,7 @@
 #include "Renice.h"
 
 Renice::Renice(int argc, char **argv): POSIXApplication(argc, argv) {
-    parser().setDescription("Change the priority of processes");
+    parser().setDescription("Change the priority of processes lolz");
     parser().registerFlag('n', "priority", "Priority Number");
     parser().registerPositional("Pri", "The priority to change to");
     parser().registerPositional("PID", "The processes ID to change");
