@@ -124,6 +124,16 @@ class ProcessManager
     Result stop(Process *proc);
 
     /**
+     * Changes priority
+     *
+     * @param proc Process pointer
+     * @param pri Priority 
+     *
+     * @return Result code
+     */
+    Result changePriority(Process *proc, int pri);
+
+    /**
      * Resume scheduling of the given Process.
      *
      * @param proc Process pointer

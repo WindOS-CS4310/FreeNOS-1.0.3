@@ -247,6 +247,12 @@ ProcessManager::Result ProcessManager::stop(Process *proc)
     }
 }
 
+ProcessManager::Result ProcessManager::changePriority(Process *proc, int pri)
+{
+    proc->setPriority(pri);
+    return Success;
+}
+
 ProcessManager::Result ProcessManager::resume(Process *proc)
 {
     const Process::Result result = proc->resume();
