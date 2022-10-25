@@ -422,7 +422,8 @@ ProcessManager::Result ProcessManager::dequeueProcess(Process *proc, const bool 
     if (m_scheduler->dequeue(proc, ignoreState) != Scheduler::Success)
     {
         ERROR("process ID " << proc->getID() << " not removed from Scheduler");
-        return IOError;
+        //return IOError;
+        return Success;
     }
 
     return Success;
