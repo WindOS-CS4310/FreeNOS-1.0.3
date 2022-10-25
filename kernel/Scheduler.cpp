@@ -62,7 +62,7 @@ Scheduler::Result Scheduler::dequeue(Process *proc, bool ignoreState)
             m_queue.enq(p, p->getPriority());
     }
 
-    FATAL("process ID " << proc->getID() << " is not in the schedule");
+    //FATAL("process ID " << proc->getID() << " is not in the schedule");
     return InvalidArgument;
 }
 
